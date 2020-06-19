@@ -1,0 +1,30 @@
+.home-layout {
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: "fixed";
+    z-index: 1;
+    width: "100%";
+  }
+
+  .ant-layout-content {
+    min-height: 600px;
+  }
+
+  &-content {
+    padding: 0 50px;
+    min-height: 360px;
+  }
+
+  &-slider {
+    height: 250px;
+    width: 100%;
+    background-color: lightpink;
+  }
+
+  .ant-layout-footer {
+    height: 100px;
+    background-color: lightseagreen !important;
+  }
+}
