@@ -26,7 +26,9 @@ export default function HomeLayout() {
         <div className="home-layout-slider">
           <Slider />
         </div>
-        <Content className="home-layout-content">CONTENIDO</Content>
+        <Content className="home-layout-content">
+          <HomeRoutes />
+        </Content>
         <Footer>
           <CustomFooter />
         </Footer>
