@@ -12,7 +12,7 @@ import AdminRoutes from "../../routes/AdminRoutes";
 import "./AdminLayout.scss";
 
 export default function AdminLayout() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const { Header, Content, Sider } = Layout;
 
@@ -49,7 +49,7 @@ export default function AdminLayout() {
       {user ? (
         <Layout>
           <Header className="header">
-            <h2>Menu Administrador</h2>
+            <h2 style={{ color: "white" }}>Menu Administrador</h2>
           </Header>
           <Layout>
             <Sider width={200} className="site-layout-background">
@@ -59,7 +59,9 @@ export default function AdminLayout() {
                 defaultOpenKeys={["sub1"]}
                 style={{ height: "100%", borderRight: 0 }}
               >
-                <Menu.Item key="1">Administrar Vehiculos</Menu.Item>
+                <Menu.Item key="1">
+                  <a href="/admin">Administrar Vehiculos</a>
+                </Menu.Item>
                 <Menu.Item key="2" onClick={logOut}>
                   Cerrar Sesión
                 </Menu.Item>
