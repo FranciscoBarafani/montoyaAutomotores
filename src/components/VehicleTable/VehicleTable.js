@@ -7,7 +7,7 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import "./VehicleTable.scss";
 
 export default function VehicleTable(props) {
-  const { dataSet, isLoading, onEditButtonClick, deleteTopic } = props;
+  const { dataSet, isLoading, onEditButtonClick, deleteVehicle } = props;
 
   return (
     <div className="vehicle-table">
@@ -29,7 +29,7 @@ export default function VehicleTable(props) {
                   title="Estas seguro que deseas eliminar?"
                   okText="Eliminar"
                   cancelText="No"
-                  onConfirm={() => deleteTopic(record.key)}
+                  onConfirm={() => deleteVehicle(record.key)}
                 >
                   <Button
                     type="danger"

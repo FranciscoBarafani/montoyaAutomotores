@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //Components
-import { message } from "antd";
+import { message, Button } from "antd";
 import VehicleForm from "../../forms/VehicleForm";
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
@@ -14,8 +14,6 @@ export default function VehicleEdit() {
 
   //Create Vehicle Function
   const createVehicle = (vehicle) => {
-    console.log("Cargando vehiculo");
-
     setIsLoading(true);
     db.collection("vehicles")
       .add(vehicle)
@@ -25,10 +23,25 @@ export default function VehicleEdit() {
       .catch(() => message.error("Error al cargar vehiculo"))
       .finally(setIsLoading(false));
   };
+  //Update Vehicle Function
+  const updateVehicle = (vehicle, id) => {
+    setIsLoading(true);
+    db.collection("vehicles")
+      .doc(id)
+      .update(vehicle)
+      .then(() => message.success("Vehiculo modificado correctamente"))
+      .catch(() => message.error("Error al modificar vehiculo"))
+      .finally(setIsLoading(false));
+  };
 
   return (
     <div className="vehicle-edit">
-      <VehicleForm createVehicle={createVehicle} isLoading={isLoading} />
+      <Button href="/admin">Volver</Button>
+      <VehicleForm
+        createVehicle={createVehicle}
+        updateVehicle={updateVehicle}
+        isLoading={isLoading}
+      />
     </div>
   );
 }

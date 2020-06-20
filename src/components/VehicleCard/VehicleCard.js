@@ -1,7 +1,7 @@
 import React from "react";
 
 //Components
-import { Card, Col } from "antd";
+import { Card } from "antd";
 
 import "./VehicleCard.scss";
 
@@ -15,8 +15,8 @@ export default function VehicleCard(props) {
         hoverable
         cover={
           <img
-            width={50}
-            height={50}
+            width={200}
+            height={200}
             alt="example"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Volkswagen_Gol_1.6_Trend_2011_%2813905746028%29.jpg/1200px-Volkswagen_Gol_1.6_Trend_2011_%2813905746028%29.jpg"
           />

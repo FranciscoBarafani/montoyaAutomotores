@@ -36,7 +36,7 @@ export default function Admin() {
   }, [refresh]);
 
   //Eliminate Vehicle
-  const deleteTopic = (id) => {
+  const deleteVehicle = (id) => {
     db.collection("vehicles")
       .doc(id)
       .delete()
@@ -48,14 +48,21 @@ export default function Admin() {
   };
 
   //Edit Vehicle
+  const onEditButtonClick = (vehicle) => {
+    window.location.replace(`/admin/vehicle-edit/${vehicle.key}`);
+  };
 
   return (
     <div className="admin">
-      <Button href="/admin/vehicleEdit">Nuevo Vehiculo</Button>
+      <Button href="/admin/vehicle-edit/new-vehicle">Nuevo Vehiculo</Button>
       {isLoading ? (
         <Loading />
       ) : (
-        <VehicleTable dataSet={vehicles} deleteTopic={deleteTopic} />
+        <VehicleTable
+          dataSet={vehicles}
+          deleteVehicle={deleteVehicle}
+          onEditButtonClick={onEditButtonClick}
+        />
       )}
     </div>
   );

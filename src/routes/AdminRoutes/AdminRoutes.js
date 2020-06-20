@@ -11,7 +11,7 @@ export default function AdminRoutes() {
       <Route path="/admin" exact>
         <Admin />
       </Route>
-      <Route path="/admin/vehicleEdit">
+      <Route path="/admin/vehicle-edit/:vehicleId">
         <VehicleEdit />
       </Route>
     </Switch>
