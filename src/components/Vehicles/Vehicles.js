@@ -18,6 +18,7 @@ export default function Vehicles(props) {
           renderItem={(item) => (
             <List.Item>
               <VehicleCard
+                id={item.id}
                 name={item.name}
                 kilometers={item.kilometers}
                 fuel={item.fuel}
