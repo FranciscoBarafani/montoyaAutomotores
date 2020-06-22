@@ -12,6 +12,7 @@ import {
 } from "antd";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
+import ImageUploader from "../../components/ImageUploader";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
@@ -22,8 +23,11 @@ const db = firebase.firestore(firebase);
 
 export default function VehicleForm(props) {
   const { createVehicle, updateVehicle, isLoading } = props;
+
   const [vehicle, setVehicle] = useState([]);
   const [isLoadingCar, setIsLoadingCar] = useState(true);
+  const [vehicleImages, setVehicleImages] = useState([]);
+
   const { Option } = Select;
   const { vehicleId } = useParams();
 
@@ -195,8 +199,11 @@ export default function VehicleForm(props) {
               </Form.Item>
             </Form>
           </Col>
-          <Col span={8} style={{ backgroundColor: "gray" }}>
-            Subir Imagenes
+          <Col span={8}>
+            <ImageUploader
+              setVehicleImages={setVehicleImages}
+              vehicleImages={vehicleImages}
+            />
           </Col>
         </Row>
       )}
