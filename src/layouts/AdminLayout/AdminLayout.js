@@ -67,15 +67,8 @@ export default function AdminLayout() {
                 </Menu.Item>
               </Menu>
             </Sider>
-            <Layout style={{ padding: "0 24px 24px" }}>
-              <Content
-                className="site-layout-background"
-                style={{
-                  padding: 24,
-                  margin: 0,
-                  minHeight: 280,
-                }}
-              >
+            <Layout>
+              <Content className="site-layout-background">
                 <AdminRoutes />
               </Content>
             </Layout>

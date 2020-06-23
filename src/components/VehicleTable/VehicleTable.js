@@ -11,39 +11,42 @@ export default function VehicleTable(props) {
 
   return (
     <div className="vehicle-table">
-      {!isLoading ? (
-        <Table dataSource={dataSet} className="table">
-          <Table.Column title="Nombre del Vehículo" dataIndex="name" key="id" />
-          <Table.Column
-            title="Acciones"
-            key="actions"
-            render={(record) => (
-              <div className="topics-table__buttons">
+      <Table
+        loading={isLoading}
+        dataSource={dataSet}
+        className="table"
+        pagination={{ pageSize: 50 }}
+        scroll={{ y: 500 }}
+        size="large"
+      >
+        <Table.Column title="Nombre del Vehículo" dataIndex="name" key="id" />
+        <Table.Column
+          title="Acciones"
+          key="actions"
+          render={(record) => (
+            <div className="topics-table__buttons">
+              <Button
+                type="secondary"
+                shape="circle"
+                icon={<EditOutlined />}
+                onClick={() => onEditButtonClick(record)}
+              />
+              <Popconfirm
+                title="Estas seguro que deseas eliminar?"
+                okText="Eliminar"
+                cancelText="No"
+                onConfirm={() => deleteVehicle(record.key)}
+              >
                 <Button
-                  type="secondary"
+                  type="danger"
                   shape="circle"
-                  icon={<EditOutlined />}
-                  onClick={() => onEditButtonClick(record)}
+                  icon={<DeleteOutlined />}
                 />
-                <Popconfirm
-                  title="Estas seguro que deseas eliminar?"
-                  okText="Eliminar"
-                  cancelText="No"
-                  onConfirm={() => deleteVehicle(record.key)}
-                >
-                  <Button
-                    type="danger"
-                    shape="circle"
-                    icon={<DeleteOutlined />}
-                  />
-                </Popconfirm>
-              </div>
-            )}
-          />
-        </Table>
-      ) : (
-        "Cargando"
-      )}
+              </Popconfirm>
+            </div>
+          )}
+        />
+      </Table>
     </div>
   );
 }

@@ -64,7 +64,7 @@ export default function VehicleForm(props) {
 
   //This function creates the object and the calls createVehicle function from parent
   //to create it or update it
-  const onFinish = (values) => {
+  const onFinish = (values, images) => {
     if (vehicleId !== "new-vehicle") {
       const vehicle = {
         name: values.name,

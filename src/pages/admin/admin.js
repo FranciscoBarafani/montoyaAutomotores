@@ -16,7 +16,6 @@ export default function Admin() {
   const [vehicles, setVehicles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
-  const [selectedVehicle, setSelectedVehicle] = useState(null);
 
   //Vehicles Get
   useEffect(() => {
@@ -54,16 +53,19 @@ export default function Admin() {
 
   return (
     <div className="admin">
-      <Button href="/admin/vehicle-edit/new-vehicle">Nuevo Vehiculo</Button>
-      {isLoading ? (
-        <Loading />
-      ) : (
+      <div className="admin__top-bar">
+        <Button href="/admin/vehicle-edit/new-vehicle" type="primary">
+          Nuevo Vehiculo
+        </Button>
+      </div>
+      <div className="admin__table">
         <VehicleTable
+          isLoading={isLoading}
           dataSet={vehicles}
           deleteVehicle={deleteVehicle}
           onEditButtonClick={onEditButtonClick}
         />
-      )}
+      </div>
     </div>
   );
 }
