@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Button, message } from "antd";
 import VehicleTable from "../../components/VehicleTable";
 import { map } from "lodash";
-import Loading from "../../components/Loading";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";

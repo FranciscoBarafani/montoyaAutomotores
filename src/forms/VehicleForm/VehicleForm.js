@@ -22,8 +22,7 @@ import "./VehicleForm.scss";
 const db = firebase.firestore(firebase);
 
 export default function VehicleForm(props) {
-  const { createVehicle, updateVehicle, isLoading } = props;
-
+  const { uploadVehicle, isLoading } = props;
   const [vehicle, setVehicle] = useState([]);
   const [isLoadingCar, setIsLoadingCar] = useState(true);
   const [vehicleImages, setVehicleImages] = useState([]);
@@ -44,7 +43,6 @@ export default function VehicleForm(props) {
         })
         .catch((response) => {
           console.log(response);
-
           message.error("Error al obtener información del vehiculo.");
           setIsLoadingCar(false);
         });
@@ -64,7 +62,7 @@ export default function VehicleForm(props) {
 
   //This function creates the object and the calls createVehicle function from parent
   //to create it or update it
-  const onFinish = (values, images) => {
+  const onFinish = (values) => {
     if (vehicleId !== "new-vehicle") {
       const vehicle = {
         name: values.name,
@@ -74,8 +72,9 @@ export default function VehicleForm(props) {
         transmission: values.transmission,
         color: values.color,
         price: values.price,
+        images: [],
       };
-      updateVehicle(vehicle, vehicleId);
+      uploadVehicle(vehicle, vehicleId, vehicleImages);
     } else {
       const vehicle = {
         name: values.name,
@@ -85,8 +84,9 @@ export default function VehicleForm(props) {
         transmission: values.transmission,
         color: values.color,
         price: values.price,
+        images: [],
       };
-      createVehicle(vehicle);
+      uploadVehicle(vehicle, null, vehicleImages);
     }
   };
 
