@@ -23,6 +23,7 @@ export default function Vehicles(props) {
                 kilometers={item.kilometers}
                 fuel={item.fuel}
                 price={item.price}
+                showImage={item.images[0]}
               />
             </List.Item>
           )}

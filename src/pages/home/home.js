@@ -6,7 +6,6 @@ import { map } from "lodash";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
-
 import "./home.scss";
 
 const db = firebase.firestore(firebase);
@@ -24,7 +23,7 @@ export default function Home() {
         map(response.docs, (vehicle) => {
           const data = vehicle.data();
           data.id = vehicle.id;
-          dataSet.push(data);
+          data.showImage = dataSet.push(data);
         });
         setVehicles(dataSet);
       })
