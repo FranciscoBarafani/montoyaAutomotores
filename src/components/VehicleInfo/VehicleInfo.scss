@@ -1,2 +1,7 @@
 .vehicle-info {
+  margin-top: 50px;
+  &__text {
+    background-color: white;
+    border-radius: 15px;
+  }
 }

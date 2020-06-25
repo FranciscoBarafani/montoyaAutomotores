@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 //Components
-import { Card } from "antd";
+import { Card, Spin } from "antd";
 import firebase from "../../utils/Firebase";
 import "firebase/storage";
 
@@ -9,7 +9,8 @@ import "./VehicleCard.scss";
 export default function VehicleCard(props) {
   const { id, name, kilometers, fuel, price, showImage } = props;
   const { Meta } = Card;
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const storageRef = firebase.storage().ref();
   const imageRef = storageRef.child("images");
@@ -20,13 +21,18 @@ export default function VehicleCard(props) {
       .getDownloadURL()
       .then((url) => {
         setImageUrl(url);
+        setIsLoading(false);
       });
   }, [id]);
 
   return (
     <div className="vehicle-card">
       <a href={`/home/${id}`}>
-        <Card hoverable cover={<img alt="Imagen" src={imageUrl} />}>
+        <Card
+          hoverable
+          cover={<img src={imageUrl} alt={name} />}
+          loading={isLoading}
+        >
           <Meta title={name} />
           <h3>
             Kilometros: {kilometers} | {fuel}

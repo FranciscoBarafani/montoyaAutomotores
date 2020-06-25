@@ -1,0 +1,20 @@
+import React from "react";
+//Components
+import { Carousel } from "antd";
+import { map } from "lodash";
+
+export default function ImageGallery(props) {
+  const { images } = props;
+
+  return (
+    <div className="image-gallery">
+      <Carousel>
+        {map(images, (image) => (
+          <div>
+            <img src={image} alt="Imagen Vehiculo" />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+}
