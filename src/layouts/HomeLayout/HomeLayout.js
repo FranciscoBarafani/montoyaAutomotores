@@ -1,12 +1,12 @@
 //Essentials
 import React from "react";
 //Components
-import { Layout } from "antd";
+import { Layout, BackTop, Avatar } from "antd";
 import TopMenu from "../../components/TopMenu";
 import Slider from "../../components/Slider";
 import CustomFooter from "../../components/Footer";
 import SocialMedia from "../../components/SocialMedia";
-import WhatsappButton from "../../components/WhatsappButton";
+import { WhatsAppOutlined } from "@ant-design/icons";
 
 //Routes
 import HomeRoutes from "../../routes/HomeRoutes";
@@ -23,11 +23,29 @@ export default function HomeLayout() {
           <TopMenu />
           <SocialMedia />
         </Header>
-        <div className="home-layout-slider">
-          <Slider />
-        </div>
+        <Content>
+          <div className="home-layout-slider">
+            <Slider />
+          </div>
+        </Content>
         <Content className="home-layout-content">
           <HomeRoutes />
+          <a
+            href="https://wa.me/5493516235746"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Avatar
+              size={60}
+              shape="circle"
+              icon={
+                <WhatsAppOutlined
+                  style={{ color: "white", backgroundColor: "transparent" }}
+                />
+              }
+            />
+          </a>
+          <BackTop />
         </Content>
         <Footer>
           <CustomFooter />

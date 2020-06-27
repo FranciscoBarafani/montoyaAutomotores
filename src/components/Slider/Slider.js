@@ -1,6 +1,11 @@
 import React from "react";
 //Components
 import { Carousel } from "antd";
+//Images
+import Img1 from "../../assets/images/banner1.jpg";
+import Img2 from "../../assets/images/banner2.jpg";
+import Img3 from "../../assets/images/banner3.jpg";
+import Img4 from "../../assets/images/banner4.jpg";
 
 import "./Slider.scss";
 
@@ -9,16 +14,16 @@ export default function Slider() {
     <div className="slider">
       <Carousel autoplay>
         <div>
-          <h3>1</h3>
+          <img src={Img1} alt="Auto" />
         </div>
         <div>
-          <h3>2</h3>
+          <img src={Img2} alt="Auto" />
         </div>
         <div>
-          <h3>3</h3>
+          <img src={Img3} alt="Auto" />
         </div>
         <div>
-          <h3>4</h3>
+          <img src={Img4} alt="Auto" />
         </div>
       </Carousel>
     </div>

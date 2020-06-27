@@ -1,4 +1,17 @@
 .home-layout {
+  .ant-avatar {
+    position: fixed;
+    right: 30px;
+    bottom: 45px;
+    background-color: #25d366;
+
+    &:hover {
+      -webkit-transition: background-color ease-out 0.3s;
+      -o-transition: background-color ease-out 0.3s;
+      transition: background-color ease-out 0.3s;
+      background-color: #28ec70;
+    }
+  }
   &-header {
     display: flex;
     flex-direction: row;
@@ -9,7 +22,7 @@
   }
 
   .ant-layout-content {
-    min-height: 600px;
+    min-height: 450px;
   }
 
   &-content {

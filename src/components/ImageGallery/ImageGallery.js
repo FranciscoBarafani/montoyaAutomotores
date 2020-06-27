@@ -3,6 +3,8 @@ import React from "react";
 import { Carousel } from "antd";
 import { map } from "lodash";
 
+import "./ImageGallery.scss";
+
 export default function ImageGallery(props) {
   const { images } = props;
 

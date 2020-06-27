@@ -1,6 +1,11 @@
 //Essentials
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 //Home Page Layout
 import HomeLayout from "./layouts/HomeLayout";
@@ -14,6 +19,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          <Redirect path="/" exact to="/home" />
           <Route path="/home">
             <HomeLayout />
           </Route>

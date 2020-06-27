@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { message, Row, Col } from "antd";
 import Loading from "../Loading";
 import ImageGallery from "../ImageGallery";
+import each from "async/each";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
@@ -15,7 +16,7 @@ const db = firebase.firestore(firebase);
 
 export default function VehicleInfo() {
   const [vehicle, setVehicle] = useState([]);
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { vehicleId } = useParams();
   //Firebase Storage References
@@ -30,24 +31,32 @@ export default function VehicleInfo() {
       .then((response) => {
         setVehicle(response.data());
         getImages(response);
-        console.log(images);
       })
       .catch(() => message.error("Error al obtener información del vehiculo."))
       .finally(() => setIsLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vehicleId]);
 
   //Get Images
-  const getImages = async (response) => {
+  const getImages = (response) => {
     const imagesUrls = [];
-    await response.data().images.forEach((image) => {
-      imageRef
-        .child(`${response.id}/${image}`)
-        .getDownloadURL()
-        .then((url) => {
-          imagesUrls.push(url);
-        });
-    });
-    setImages(imagesUrls);
+    each(
+      response.data().images,
+      (image, callback) => {
+        imageRef
+          .child(`${response.id}/${image}`)
+          .getDownloadURL()
+          .then((url) => {
+            console.log(url);
+            imagesUrls.push(url);
+            callback();
+          });
+      },
+      () => {
+        setImages(imagesUrls);
+        setIsLoading(false);
+      }
+    );
   };
 
   return (

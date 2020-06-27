@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 //Pages
 import Home from "../../pages/home";
 import VehicleInfo from "../../components/VehicleInfo";
+import About from "../../pages/about";
 
 export default function HomeRoutes() {
   return (
@@ -14,6 +15,9 @@ export default function HomeRoutes() {
       </Route>
       <Route path="/home/:vehicleId" exact>
         <VehicleInfo />
+      </Route>
+      <Route path="/about" exact>
+        <About />
       </Route>
     </Switch>
   );
