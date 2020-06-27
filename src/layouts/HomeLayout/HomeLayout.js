@@ -30,21 +30,23 @@ export default function HomeLayout() {
         </Content>
         <Content className="home-layout-content">
           <HomeRoutes />
-          <a
-            href="https://wa.me/5493516235746"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Avatar
-              size={60}
-              shape="circle"
-              icon={
-                <WhatsAppOutlined
-                  style={{ color: "white", backgroundColor: "transparent" }}
-                />
-              }
-            />
-          </a>
+          <div className="home-layout-content__whatsapp-icon">
+            <a
+              href="https://wa.me/5493516235746"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Avatar
+                size={60}
+                shape="circle"
+                icon={
+                  <WhatsAppOutlined
+                    style={{ color: "white", backgroundColor: "transparent" }}
+                  />
+                }
+              />
+            </a>
+          </div>
           <BackTop />
         </Content>
         <Footer>

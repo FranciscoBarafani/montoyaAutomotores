@@ -1,2 +1,26 @@
 .social-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  .anticon {
+    color: black;
+    &:hover {
+      color: white;
+    }
+  }
+
+  .ant-avatar {
+    background-color: white;
+
+    &:hover {
+      -webkit-transition: background-color ease-out 0.3s;
+      -o-transition: background-color ease-out 0.3s;
+      transition: background-color ease-out 0.3s;
+      background-color: #183059;
+      .anticon {
+        color: white;
+      }
+    }
+  }
 }

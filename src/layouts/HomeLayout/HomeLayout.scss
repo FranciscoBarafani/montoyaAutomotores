@@ -1,17 +1,4 @@
 .home-layout {
-  .ant-avatar {
-    position: fixed;
-    right: 30px;
-    bottom: 45px;
-    background-color: #25d366;
-
-    &:hover {
-      -webkit-transition: background-color ease-out 0.3s;
-      -o-transition: background-color ease-out 0.3s;
-      transition: background-color ease-out 0.3s;
-      background-color: #28ec70;
-    }
-  }
   &-header {
     display: flex;
     flex-direction: row;
@@ -21,8 +8,29 @@
     width: "100%";
   }
 
+  .ant-layout-header {
+    background: white;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+
   .ant-layout-content {
     min-height: 450px;
+
+    .ant-avatar {
+      position: fixed;
+      right: 30px;
+      bottom: 45px;
+      background-color: #25d366;
+
+      &:hover {
+        -webkit-transition: background-color ease-out 0.3s;
+        -o-transition: background-color ease-out 0.3s;
+        transition: background-color ease-out 0.3s;
+        background-color: #28ec70;
+      }
+    }
   }
 
   &-content {
@@ -37,6 +45,6 @@
 
   .ant-layout-footer {
     height: 100px;
-    background-color: #364d79;
+    background-color: #f0f2f5;
   }
 }
