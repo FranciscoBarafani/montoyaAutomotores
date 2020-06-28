@@ -3,14 +3,14 @@
     text-align: center;
     height: 450px;
     line-height: 160px;
-    background: #364d79;
+    background: white;
     overflow: hidden;
 
     img {
       width: 100%;
       max-width: 2000px;
       height: auto;
-      max-height: 450;
+      min-height: 450;
     }
   }
 

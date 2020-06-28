@@ -33,9 +33,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div>
-        <h1>Nuestros Usados</h1>
-      </div>
       <Vehicles vehicles={vehicles} loading={isLoading} />
     </div>
   );

@@ -34,10 +34,11 @@ export default function VehicleCard(props) {
           loading={isLoading}
         >
           <Meta title={name} />
-          <h3>
+
+          <p>
             Kilometros: {kilometers} | {fuel}
-          </h3>
-          <h2>ARS {price} </h2>
+          </p>
+          <h3>ARS {price} </h3>
         </Card>
       </a>
     </div>

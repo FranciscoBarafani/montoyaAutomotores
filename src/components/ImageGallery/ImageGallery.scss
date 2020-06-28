@@ -1,8 +1,9 @@
 .image-gallery {
+  max-width: 800px;
   img {
     width: 100%;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 800px;
+    max-height: 800px;
     height: auto;
   }
 }
