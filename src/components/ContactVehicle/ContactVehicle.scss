@@ -1,0 +1,26 @@
+.contact-vehicle-button {
+  display: flex;
+  padding: 5px;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #25d366;
+
+  &:hover {
+    background-color: #28ec70;
+  }
+
+  .anticon {
+    color: white;
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  h3 {
+    margin-top: 5px;
+    color: white;
+  }
+}

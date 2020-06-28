@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 //Components
 import { useParams } from "react-router-dom";
 import { message, Row, Col } from "antd";
+import ContactVehicle from "../ContactVehicle";
 import Loading from "../Loading";
 import ImageGallery from "../ImageGallery";
 import each from "async/each";
@@ -78,6 +79,7 @@ export default function VehicleInfo() {
                   <p>Combustible: {vehicle.fuel}</p>
                   <p>Transmisión: {vehicle.transmission}</p>
                   <p>Precio: {vehicle.price}</p>
+                  <ContactVehicle vehicleName={vehicle.name} />
                 </div>
               </div>
             </Col>
