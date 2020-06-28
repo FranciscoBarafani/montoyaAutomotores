@@ -1,16 +1,15 @@
 .slider {
+  height: 500px;
   .ant-carousel .slick-slide {
     text-align: center;
-    height: 450px;
     line-height: 160px;
     background: white;
     overflow: hidden;
+    height: 500px !important;
 
     img {
-      width: 100%;
-      max-width: 2000px;
-      height: auto;
-      min-height: 450;
+      width: auto;
+      height: 500px;
     }
   }
 

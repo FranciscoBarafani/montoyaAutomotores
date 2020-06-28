@@ -1,7 +1,17 @@
 .vehicle-info {
   margin-top: 50px;
+  min-height: 600px;
+
   &__text {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: justify;
+    align-items: flex-start;
     background-color: white;
     border-radius: 15px;
+    h1 {
+      font-weight: bold;
+    }
   }
 }

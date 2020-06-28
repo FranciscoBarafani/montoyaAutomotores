@@ -33,10 +33,9 @@ export default function VehicleCard(props) {
           cover={<img src={imageUrl} alt={name} />}
           loading={isLoading}
         >
-          <Meta title={name} />
-
+          <Meta title={<h3>{name}</h3>} />
           <p>
-            Kilometros: {kilometers} | {fuel}
+            {kilometers} KM | {fuel}
           </p>
           <h3>ARS {price} </h3>
         </Card>

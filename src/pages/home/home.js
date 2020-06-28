@@ -33,6 +33,7 @@ export default function Home() {
 
   return (
     <div className="home">
+      <h2 style={{ fontWeight: "bold" }}>Nuestros Usados</h2>
       <Vehicles vehicles={vehicles} loading={isLoading} />
     </div>
   );

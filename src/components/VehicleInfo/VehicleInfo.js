@@ -72,11 +72,13 @@ export default function VehicleInfo() {
             <Col xs={12} sm={12} md={10} lg={10} xl={10}>
               <div className="vehicle-info__text">
                 <h1>{vehicle.name}</h1>
-                <p>Modelo: {vehicle.year}</p>
-                <p>Kilometros: {vehicle.kilometers}</p>
-                <p>Combustible: {vehicle.fuel}</p>
-                <p>Transmisión: {vehicle.transmission}</p>
-                <p>Precio: {vehicle.price}</p>
+                <div className="vehicle-info__text-data">
+                  <p>Modelo: {vehicle.year}</p>
+                  <p>Kilometros: {vehicle.kilometers}</p>
+                  <p>Combustible: {vehicle.fuel}</p>
+                  <p>Transmisión: {vehicle.transmission}</p>
+                  <p>Precio: {vehicle.price}</p>
+                </div>
               </div>
             </Col>
           </Row>
