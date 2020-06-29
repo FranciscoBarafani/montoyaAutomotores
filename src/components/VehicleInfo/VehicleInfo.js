@@ -67,12 +67,12 @@ export default function VehicleInfo() {
       ) : (
         <div className="vehicle-info">
           <Row justify="space-around" align="middle">
-            <Col xs={12} sm={12} md={10} lg={10} xl={10}>
+            <Col xs={24} sm={24} md={14} lg={14} xl={14}>
               <ImageGallery images={images} />
             </Col>
-            <Col xs={12} sm={12} md={10} lg={10} xl={10}>
+            <Col xs={24} sm={24} md={8} lg={8} xl={8}>
               <div className="vehicle-info__text">
-                <h1>{vehicle.name}</h1>
+                <h2>{vehicle.name}</h2>
                 <div className="vehicle-info__text-data">
                   <p>Modelo: {vehicle.year}</p>
                   <p>Kilometros: {vehicle.kilometers}</p>

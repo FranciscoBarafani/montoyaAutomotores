@@ -1,16 +1,10 @@
 .vehicle-form {
-  width: 100%;
-  margin-top: 50px;
-
+  margin: 1% 1% 2% 1%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
   h2 {
     color: rgb(90, 90, 90);
-  }
-
-  .ant-form {
-    background-color: white;
-    border: lightgray solid 1px;
-    padding: 20px;
-    border-radius: 15px;
   }
 
   .ant-row {

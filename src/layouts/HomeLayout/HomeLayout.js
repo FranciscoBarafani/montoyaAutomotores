@@ -1,7 +1,7 @@
 //Essentials
 import React from "react";
 //Components
-import { BackTop, Avatar, Row } from "antd";
+import { Avatar, Row } from "antd";
 import TopMenu from "../../components/TopMenu";
 import Slider from "../../components/Slider";
 import CustomFooter from "../../components/Footer";
@@ -49,7 +49,6 @@ export default function HomeLayout() {
             }
           />
         </a>
-        <BackTop />
       </div>
     </div>
   );

@@ -1,15 +1,24 @@
 .slider {
-  height: 500px;
   .ant-carousel .slick-slide {
     text-align: center;
     line-height: 160px;
     background: white;
     overflow: hidden;
-    height: 500px !important;
+    @media screen and (min-width: 768px) {
+      height: 500px !important;
 
-    img {
-      width: auto;
-      height: 500px;
+      img {
+        width: auto;
+        height: 500px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 200px !important;
+      img {
+        width: auto;
+        height: 200px;
+      }
     }
   }
 

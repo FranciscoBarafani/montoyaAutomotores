@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 //Components
-import { message, Button } from "antd";
+import { Button, Row, Steps, Modal } from "antd";
+import {
+  CarOutlined,
+  FileImageOutlined,
+  LoadingOutlined,
+} from "@ant-design/icons";
 import VehicleForm from "../../forms/VehicleForm";
+import each from "async/each";
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
 import "firebase/storage";
@@ -12,10 +18,14 @@ const db = firebase.firestore(firebase);
 
 export default function VehicleEdit() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [stepStatus, setStepStatus] = useState("process");
 
   //Upload Vehicle
   const uploadVehicle = (vehicle, id, images) => {
     setIsLoading(true);
+    setShowModal(true);
     //Adding the images to the vehicle object prior to upload
     images.fileList.forEach((image) => {
       vehicle.images.push(image.uid);
@@ -26,20 +36,20 @@ export default function VehicleEdit() {
         .doc(id)
         .update(vehicle)
         .then(() => {
-          message.success("Vehiculo modificado correctamente");
+          setCurrentStep(1);
           uploadImage(images, id);
         })
-        .catch(() => message.error("Error al modificar vehiculo"));
+        .catch(() => setStepStatus("error"));
     } else {
       db.collection("vehicles")
         .add(vehicle)
         .then((docRef) => {
           id = docRef.id;
+          setCurrentStep(1);
           uploadImage(images, id);
         })
-        .catch(() => message.error("Error al cargar vehiculo"));
+        .catch(() => setStepStatus("error"));
     }
-    setIsLoading(false);
   };
 
   //Upload Image
@@ -48,22 +58,66 @@ export default function VehicleEdit() {
     //Creating Upload folder and Storage REF
     const storageRef = firebase.storage().ref();
     const imageRef = storageRef.child("images");
-    images.fileList
-      .forEach((image) => {
+    each(
+      images.fileList,
+      (image, callback) => {
         imageRef
           .child(`${id}/${image.uid}`)
           .put(image.originFileObj)
-          .then(() => {
-            message.success(`Imagen ${image.uid} Subida`);
-          });
-      })
-      .catch(() => message.error("Error al subir Imagen"));
+          .then(() => callback());
+      },
+      () => {
+        console.log(showModal);
+        console.log(isLoading);
+
+        setCurrentStep(2);
+        setStepStatus("finish");
+        setIsLoading(false);
+      }
+    );
   };
 
   return (
     <div className="vehicle-edit">
-      <Button href="/admin">Volver</Button>
+      <Row>
+        <Button href="/admin" style={{ marginLeft: 10, marginTop: 10 }}>
+          Volver
+        </Button>
+      </Row>
       <VehicleForm uploadVehicle={uploadVehicle} isLoading={isLoading} />
+      <Modal
+        visible={showModal}
+        closable={false}
+        destroyOnClose={true}
+        footer={[
+          <Button
+            type="primary"
+            onClick={() => setShowModal(false)}
+            disabled={isLoading}
+          >
+            Ok
+          </Button>,
+        ]}
+      >
+        <Steps direction="vertical" status={stepStatus} current={currentStep}>
+          <Steps.Step
+            title="Cargando Vehiculo"
+            description="Se esta cargando su vehiculo"
+            icon={currentStep === 0 ? <LoadingOutlined /> : <CarOutlined />}
+          />
+          <Steps.Step
+            title="Cargando Imagenes"
+            description="Se estan subiendo las imagenes."
+            icon={
+              currentStep === 1 ? <LoadingOutlined /> : <FileImageOutlined />
+            }
+          />
+          <Steps.Step
+            title="Finalizado"
+            description="Su vehiculo fue cargado correctamente"
+          />
+        </Steps>
+      </Modal>
     </div>
   );
 }

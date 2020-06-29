@@ -54,7 +54,7 @@ export default function VehicleForm(props) {
   //Form Layout
   const layout = {
     labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+    wrapperCol: { span: 10 },
   };
   const tailLayout = {
     wrapperCol: { offset: 0, span: 16 },
@@ -95,8 +95,8 @@ export default function VehicleForm(props) {
       {isLoadingCar ? (
         <Loading />
       ) : (
-        <Row align="top" justify="space-between">
-          <Col span={8} offset={4}>
+        <Row align="top" justify="space-evenly">
+          <Col span={10}>
             <Form onFinish={onFinish} {...layout} initialValues={vehicle}>
               <h2>Formulario de Vehiculo</h2>
               <Form.Item
@@ -186,20 +186,21 @@ export default function VehicleForm(props) {
                 rules={[
                   {
                     required: true,
-                    message: "Por favor ingresa el precio del vehiculo.",
+                    message: "Por favor ingrese el precio del vehiculo.",
                   },
                 ]}
               >
                 <InputNumber />
               </Form.Item>
               <Form.Item>
-                <Button htmlType="submit" loading={isLoading} type="primary">
+                <Button htmlType="submit" type="primary" loading={isLoading}>
                   Cargar Vehiculo
                 </Button>
               </Form.Item>
             </Form>
           </Col>
           <Col span={8}>
+            <p>Imágenes</p>
             <ImageUploader
               setVehicleImages={setVehicleImages}
               vehicleImages={vehicleImages}
