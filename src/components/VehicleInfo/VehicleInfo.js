@@ -6,6 +6,7 @@ import ContactVehicle from "../ContactVehicle";
 import Loading from "../Loading";
 import ImageGallery from "../ImageGallery";
 import each from "async/each";
+import { Descriptions } from "antd";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
@@ -68,19 +69,33 @@ export default function VehicleInfo() {
         <div className="vehicle-info">
           <Row justify="space-around" align="middle">
             <Col xs={24} sm={24} md={14} lg={14} xl={14}>
-              <ImageGallery images={images} />
+              <div className="vehicle-info-img">
+                <ImageGallery images={images} />
+              </div>
             </Col>
             <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-              <div className="vehicle-info__text">
-                <h2>{vehicle.name}</h2>
-                <div className="vehicle-info__text-data">
-                  <p>Modelo: {vehicle.year}</p>
-                  <p>Kilometros: {vehicle.kilometers}</p>
-                  <p>Combustible: {vehicle.fuel}</p>
-                  <p>Transmisión: {vehicle.transmission}</p>
-                  <p>Precio: {vehicle.price}</p>
-                  <ContactVehicle vehicleName={vehicle.name} />
-                </div>
+              <div className="vehicle-info-card">
+                <Descriptions title={vehicle.name} bordered column={1}>
+                  <Descriptions.Item label="Modelo:">
+                    {vehicle.year}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Kilometros:">
+                    {vehicle.kilometers}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Combustible:">
+                    {vehicle.fuel}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Transmisión:">
+                    {vehicle.transmission}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Precio:">
+                    {vehicle.price}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Año:">
+                    {vehicle.year}
+                  </Descriptions.Item>
+                </Descriptions>
+                <ContactVehicle vehicleName={vehicle.name} />
               </div>
             </Col>
           </Row>

@@ -1,2 +1,7 @@
 .footer {
+  h3 {
+    @media (max-width: 576px) {
+      font-size: small;
+    }
+  }
 }

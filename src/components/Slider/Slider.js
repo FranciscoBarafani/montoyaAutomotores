@@ -12,7 +12,7 @@ import "./Slider.scss";
 export default function Slider() {
   return (
     <div className="slider">
-      <Carousel autoplay>
+      <Carousel autoplay effect="fade">
         <div>
           <img src={Img1} alt="Auto" />
         </div>
