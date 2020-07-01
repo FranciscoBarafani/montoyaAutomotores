@@ -18,6 +18,7 @@ import firebase from "../../utils/Firebase";
 import "firebase/firestore";
 
 import "./VehicleForm.scss";
+import { each } from "async";
 
 const db = firebase.firestore(firebase);
 
@@ -39,6 +40,8 @@ export default function VehicleForm(props) {
         .get()
         .then((response) => {
           setVehicle(response.data());
+          console.log(response.data());
+
           setIsLoadingCar(false);
         })
         .catch((response) => {

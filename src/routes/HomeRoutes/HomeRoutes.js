@@ -13,11 +13,11 @@ export default function HomeRoutes() {
       <Route path="/home" exact>
         <Home />
       </Route>
+      <Route path="/home/about" exact>
+        <About />
+      </Route>
       <Route path="/home/:vehicleId" exact>
         <VehicleInfo />
-      </Route>
-      <Route path="/about" exact>
-        <About />
       </Route>
     </Switch>
   );

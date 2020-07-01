@@ -13,7 +13,7 @@ export default function TopMenu() {
           <a href="/home">Home</a>
         </Menu.Item>
         <Menu.Item>
-          <a href="/quienes-somos">Quienes Somos?</a>
+          <a href="/home/about">Quienes Somos?</a>
         </Menu.Item>
       </Menu>
     </div>
