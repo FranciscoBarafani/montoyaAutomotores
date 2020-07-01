@@ -12,13 +12,14 @@ import {
 } from "antd";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
+import { each } from "async";
 import ImageUploader from "../../components/ImageUploader";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
 
 import "./VehicleForm.scss";
-import { each } from "async";
+import { FileWordFilled } from "@ant-design/icons";
 
 const db = firebase.firestore(firebase);
 
@@ -40,12 +41,9 @@ export default function VehicleForm(props) {
         .get()
         .then((response) => {
           setVehicle(response.data());
-          console.log(response.data());
-
-          setIsLoadingCar(false);
+          getVehicleImages(vehicleId, response.data().images);
         })
         .catch((response) => {
-          console.log(response);
           message.error("Error al obtener información del vehiculo.");
           setIsLoadingCar(false);
         });
@@ -61,6 +59,53 @@ export default function VehicleForm(props) {
   };
   const tailLayout = {
     wrapperCol: { offset: 0, span: 16 },
+  };
+
+  //This function gets the vehicle images
+  const getVehicleImages = (vehicleId, images) => {
+    //Firebase Storage References
+    const storageRef = firebase.storage().ref();
+    const imageRef = storageRef.child("images");
+
+    const fileList = { fileList: [] };
+
+    each(
+      images,
+      (image, callback) => {
+        imageRef
+          .child(`${vehicleId}/${image}`)
+          .getDownloadURL()
+          .then((url) => {
+            const imageFile = {
+              uid: image,
+              name: image,
+              status: "done",
+              url: url,
+            };
+            //We need to get the already uploaded images blobs, and turn them into files
+            //and add them into fileOriginObj
+            //XMLHttpRequest to get blob file
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = "blob";
+            xhr.onload = function (event) {
+              var blob = xhr.response;
+              var file = new File([blob], image, {
+                type: "image/jpeg",
+                lastModified: Date.now(),
+              });
+              imageFile.originFileObj = file;
+            };
+            xhr.open("GET", url);
+            xhr.send();
+            fileList.fileList.push(imageFile);
+            callback();
+          });
+      },
+      () => {
+        setVehicleImages(fileList);
+        setIsLoadingCar(false);
+      }
+    );
   };
 
   //This function creates the object and the calls createVehicle function from parent

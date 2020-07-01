@@ -24,6 +24,8 @@ export default function VehicleEdit() {
 
   //Upload Vehicle
   const uploadVehicle = (vehicle, id, images) => {
+    console.log(images);
+
     setIsLoading(true);
     setShowModal(true);
     //Adding the images to the vehicle object prior to upload
@@ -58,18 +60,18 @@ export default function VehicleEdit() {
     //Creating Upload folder and Storage REF
     const storageRef = firebase.storage().ref();
     const imageRef = storageRef.child("images");
+
     each(
       images.fileList,
       (image, callback) => {
         imageRef
           .child(`${id}/${image.uid}`)
           .put(image.originFileObj)
-          .then(() => callback());
+          .then(() => {
+            callback();
+          });
       },
       () => {
-        console.log(showModal);
-        console.log(isLoading);
-
         setCurrentStep(2);
         setStepStatus("finish");
         setIsLoading(false);

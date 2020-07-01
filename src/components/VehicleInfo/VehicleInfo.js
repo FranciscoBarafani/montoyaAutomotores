@@ -49,7 +49,6 @@ export default function VehicleInfo() {
           .child(`${response.id}/${image}`)
           .getDownloadURL()
           .then((url) => {
-            console.log(url);
             imagesUrls.push(url);
             callback();
           });

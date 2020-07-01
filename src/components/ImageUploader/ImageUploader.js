@@ -35,6 +35,8 @@ export default function ImageUploader(props) {
 
   //This handler adds the selected images to the parent state
   const handleChange = ({ fileList }) => {
+    console.log(fileList);
+
     setVehicleImages({ fileList });
   };
 
@@ -54,6 +56,7 @@ export default function ImageUploader(props) {
           listType="picture-card"
           onPreview={handlePreview}
           onChange={handleChange}
+          fileList={vehicleImages.fileList}
         >
           {vehicleImages.fileList?.length >= 6 ? null : (
             <div>
