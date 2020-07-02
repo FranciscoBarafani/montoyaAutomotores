@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //Components
-import { Button, Row, Steps, Modal } from "antd";
+import { Button, Row, Steps, Modal, message } from "antd";
 import {
   CarOutlined,
   FileImageOutlined,
@@ -42,7 +42,10 @@ export default function VehicleEdit() {
           setCurrentStep(1);
           uploadImage(images, id);
         })
-        .catch(() => setStepStatus("error"));
+        .catch(() => {
+          message.error("Ha surgido un error, intentelo nuevamente.");
+          setStepStatus("error");
+        });
     } else {
       db.collection("vehicles")
         .add(vehicle)
@@ -51,7 +54,10 @@ export default function VehicleEdit() {
           setCurrentStep(1);
           uploadImage(images, id);
         })
-        .catch(() => setStepStatus("error"));
+        .catch(() => {
+          message.error("Ha surgido un error, intentelo nuevamente.");
+          setStepStatus("error");
+        });
     }
   };
 
@@ -70,6 +76,13 @@ export default function VehicleEdit() {
           .put(image.originFileObj)
           .then(() => {
             callback();
+          })
+          .catch(() => {
+            db.collection("vehicles").doc(id).delete();
+            message.error(
+              "Ha surgido un error al subir imagenes, intentelo nuevamente."
+            );
+            setStepStatus("error");
           });
       },
       () => {
