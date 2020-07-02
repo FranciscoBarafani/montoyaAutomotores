@@ -35,8 +35,6 @@ export default function ImageUploader(props) {
 
   //This handler adds the selected images to the parent state
   const handleChange = ({ fileList }) => {
-    console.log(fileList);
-
     setVehicleImages({ fileList });
   };
 

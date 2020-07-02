@@ -19,7 +19,6 @@ import firebase from "../../utils/Firebase";
 import "firebase/firestore";
 
 import "./VehicleForm.scss";
-import { FileWordFilled } from "@ant-design/icons";
 
 const db = firebase.firestore(firebase);
 

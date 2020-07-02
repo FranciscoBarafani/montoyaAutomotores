@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 //Components
 import { Layout, Menu, message } from "antd";
+import { Link } from "react-router-dom";
 import LoginForm from "../../forms/LoginForm";
 //Firebase
 import firebase from "../../utils/Firebase";
@@ -12,7 +13,7 @@ import AdminRoutes from "../../routes/AdminRoutes";
 import "./AdminLayout.scss";
 
 export default function AdminLayout() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { Header, Content, Sider } = Layout;
 
@@ -60,7 +61,7 @@ export default function AdminLayout() {
                 style={{ height: "100%", borderRight: 0 }}
               >
                 <Menu.Item key="1">
-                  <a href="/admin">Administrar Vehiculos</a>
+                  <Link to="/admin">Administrar Vehiculos</Link>
                 </Menu.Item>
                 <Menu.Item key="2" onClick={logOut}>
                   Cerrar Sesión

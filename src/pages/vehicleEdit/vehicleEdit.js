@@ -6,6 +6,7 @@ import {
   FileImageOutlined,
   LoadingOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import VehicleForm from "../../forms/VehicleForm";
 import each from "async/each";
 import firebase from "../../utils/Firebase";
@@ -82,9 +83,9 @@ export default function VehicleEdit() {
   return (
     <div className="vehicle-edit">
       <Row>
-        <Button href="/admin" style={{ marginLeft: 10, marginTop: 10 }}>
-          Volver
-        </Button>
+        <Link to="/admin">
+          <Button style={{ marginLeft: 10, marginTop: 10 }}>Volver</Button>
+        </Link>
       </Row>
       <VehicleForm uploadVehicle={uploadVehicle} isLoading={isLoading} />
       <Modal

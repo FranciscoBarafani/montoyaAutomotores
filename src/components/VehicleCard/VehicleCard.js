@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 //Components
-import { Card, Spin } from "antd";
+import { Card } from "antd";
+import { Link } from "react-router-dom";
 import firebase from "../../utils/Firebase";
 import "firebase/storage";
 
@@ -27,7 +28,7 @@ export default function VehicleCard(props) {
 
   return (
     <div className="vehicle-card">
-      <a href={`/home/${id}`}>
+      <Link to={`/home/${id}`}>
         <Card
           hoverable
           cover={<img src={imageUrl} alt={name} />}
@@ -39,7 +40,7 @@ export default function VehicleCard(props) {
           </p>
           <h3>ARS {price} </h3>
         </Card>
-      </a>
+      </Link>
     </div>
   );
 }

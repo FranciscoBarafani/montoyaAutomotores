@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button, message } from "antd";
 import VehicleTable from "../../components/VehicleTable";
 import { map } from "lodash";
+import { Link, useHistory } from "react-router-dom";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
@@ -15,6 +16,9 @@ export default function Admin() {
   const [vehicles, setVehicles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
+
+  //useHistory replaces Link component programmatically to redirect webpage inside JS code
+  let history = useHistory();
 
   //Vehicles Get
   useEffect(() => {
@@ -47,15 +51,15 @@ export default function Admin() {
 
   //Edit Vehicle
   const onEditButtonClick = (vehicle) => {
-    window.location.replace(`/admin/vehicle-edit/${vehicle.key}`);
+    history.push(`/admin/vehicle-edit/${vehicle.key}`);
   };
 
   return (
     <div className="admin">
       <div className="admin__top-bar">
-        <Button href="/admin/vehicle-edit/new-vehicle" type="primary">
-          Nuevo Vehiculo
-        </Button>
+        <Link to="/admin/vehicle-edit/new-vehicle">
+          <Button type="primary">Nuevo Vehiculo</Button>
+        </Link>
       </div>
       <div className="admin__table">
         <VehicleTable
