@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
+import "firebase/storage";
 
 import "./admin.scss";
 

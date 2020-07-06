@@ -93,6 +93,9 @@ export default function VehicleInfo() {
                   <Descriptions.Item label="Año:">
                     {vehicle.year}
                   </Descriptions.Item>
+                  <Descriptions.Item label="Descripción">
+                    {vehicle.description}
+                  </Descriptions.Item>
                 </Descriptions>
                 <ContactVehicle vehicleName={vehicle.name} />
               </div>

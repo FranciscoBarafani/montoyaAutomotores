@@ -6,6 +6,7 @@ import {
   FileImageOutlined,
   LoadingOutlined,
 } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import VehicleForm from "../../forms/VehicleForm";
 import each from "async/each";
@@ -22,6 +23,7 @@ export default function VehicleEdit() {
   const [showModal, setShowModal] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [stepStatus, setStepStatus] = useState("process");
+  let history = useHistory();
 
   //Upload Vehicle
   const uploadVehicle = (vehicle, id, images) => {
@@ -108,7 +110,10 @@ export default function VehicleEdit() {
         footer={[
           <Button
             type="primary"
-            onClick={() => setShowModal(false)}
+            onClick={() => {
+              setShowModal(false);
+              history.push(`/admin/`);
+            }}
             disabled={isLoading}
           >
             Ok

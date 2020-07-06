@@ -119,6 +119,7 @@ export default function VehicleForm(props) {
         transmission: values.transmission,
         color: values.color,
         price: values.price,
+        description: values.description,
         images: [],
       };
       uploadVehicle(vehicle, vehicleId, vehicleImages);
@@ -131,6 +132,7 @@ export default function VehicleForm(props) {
         transmission: values.transmission,
         color: values.color,
         price: values.price,
+        description: values.description,
         images: [],
       };
       uploadVehicle(vehicle, null, vehicleImages);
@@ -238,6 +240,9 @@ export default function VehicleForm(props) {
                 ]}
               >
                 <InputNumber />
+              </Form.Item>
+              <Form.Item name="description" label="Descripción">
+                <Input.TextArea rows={4} />
               </Form.Item>
               <Form.Item>
                 <Button htmlType="submit" type="primary" loading={isLoading}>

@@ -56,7 +56,7 @@ export default function ImageUploader(props) {
           onChange={handleChange}
           fileList={vehicleImages.fileList}
         >
-          {vehicleImages.fileList?.length >= 6 ? null : (
+          {vehicleImages.fileList?.length >= 8 ? null : (
             <div>
               <PlusOutlined />
               <div className="ant-upload-text">Subir Imagen</div>

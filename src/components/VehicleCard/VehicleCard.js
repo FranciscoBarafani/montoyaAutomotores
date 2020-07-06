@@ -24,6 +24,7 @@ export default function VehicleCard(props) {
         setImageUrl(url);
         setIsLoading(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
