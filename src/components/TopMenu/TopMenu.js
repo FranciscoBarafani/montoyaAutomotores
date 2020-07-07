@@ -10,7 +10,9 @@ import "./TopMenu.scss";
 export default function TopMenu() {
   return (
     <div className="top-menu">
-      <img src={Logo} alt="logo" />
+      <Link to="/home">
+        <img src={Logo} alt="logo" />
+      </Link>
       <Menu mode="horizontal" theme="dark">
         <Menu.Item>
           <Link to="/home">Principal</Link>

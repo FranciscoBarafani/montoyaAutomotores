@@ -16,11 +16,7 @@ import "./HomeLayout.scss";
 export default function HomeLayout() {
   return (
     <div className="home-layout">
-      <Row
-        className="home-layout__header"
-        align="bottom"
-        justify="space-between"
-      >
+      <Row className="home-layout__header" justify="space-between">
         <TopMenu />
         <SocialMedia />
       </Row>

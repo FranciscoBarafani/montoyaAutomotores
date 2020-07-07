@@ -14,7 +14,7 @@ export default function SocialMedia() {
         rel="noopener noreferrer"
       >
         <Avatar
-          size={50}
+          size={45}
           shape="circle"
           icon={<FacebookOutlined style={{ backgroundColor: "transparent" }} />}
         />
@@ -25,7 +25,7 @@ export default function SocialMedia() {
         rel="noopener noreferrer"
       >
         <Avatar
-          size={50}
+          size={45}
           shape="circle"
           icon={
             <InstagramOutlined style={{ backgroundColor: "transparent" }} />
