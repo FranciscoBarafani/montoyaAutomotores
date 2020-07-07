@@ -4,22 +4,22 @@
   justify-content: space-around;
   align-items: center;
   .anticon {
-    color: black;
+    color: white;
     &:hover {
       color: white;
     }
   }
 
   .ant-avatar {
-    background-color: white;
+    background-color: #183059;
 
     &:hover {
       -webkit-transition: background-color ease-out 0.3s;
       -o-transition: background-color ease-out 0.3s;
       transition: background-color ease-out 0.3s;
-      background-color: #183059;
+      background-color: white;
       .anticon {
-        color: white;
+        color: #183059;
       }
     }
   }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //Components
 import Vehicles from "../../components/Vehicles";
-import { message } from "antd";
+import { message, Divider } from "antd";
 import { map } from "lodash";
 //Firebase
 import firebase from "../../utils/Firebase";
@@ -33,7 +33,11 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h2 style={{ fontWeight: "bold" }}>Nuestros Usados</h2>
+      <Divider style={{ color: "black" }}>
+        <h2>
+          <b>Nuestros Usados</b>
+        </h2>
+      </Divider>
       <Vehicles vehicles={vehicles} loading={isLoading} />
     </div>
   );

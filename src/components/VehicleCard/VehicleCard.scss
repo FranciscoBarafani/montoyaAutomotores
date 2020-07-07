@@ -2,6 +2,12 @@
   max-width: 400px;
   height: auto;
 
+  .ant-card-hoverable {
+    &:hover {
+      border-color: #183059;
+    }
+  }
+
   h3 {
     font-weight: bold;
     @media (max-width: 576px) {

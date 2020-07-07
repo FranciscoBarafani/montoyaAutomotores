@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import firebase from "../../utils/Firebase";
+import { Parallax } from "rc-scroll-anim";
 import "firebase/storage";
 
 import "./VehicleCard.scss";
@@ -29,19 +30,28 @@ export default function VehicleCard(props) {
 
   return (
     <div className="vehicle-card">
-      <Link to={`/home/${id}`}>
-        <Card
-          hoverable
-          cover={<img src={imageUrl} alt={name} />}
-          loading={isLoading}
-        >
-          <Meta title={<h3>{name}</h3>} />
-          <p>
-            {kilometers} KM | {fuel}
-          </p>
-          <h3>ARS {price} </h3>
-        </Card>
-      </Link>
+      <Parallax
+        always={false}
+        animation={[{ y: -0, opacity: 1, playScale: [0, 0.5] }]}
+        style={{
+          transform: "translateY(100px)",
+          opacity: 0,
+        }}
+      >
+        <Link to={`/home/${id}`}>
+          <Card
+            hoverable
+            cover={<img src={imageUrl} alt={name} />}
+            loading={isLoading}
+          >
+            <Meta title={<h3>{name}</h3>} />
+            <p>
+              {kilometers} KM | {fuel}
+            </p>
+            <h3>ARS {price} </h3>
+          </Card>
+        </Link>
+      </Parallax>
     </div>
   );
 }
