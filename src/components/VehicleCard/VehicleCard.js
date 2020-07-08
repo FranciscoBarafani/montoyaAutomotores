@@ -46,9 +46,9 @@ export default function VehicleCard(props) {
           >
             <Meta title={<h3>{name}</h3>} />
             <p>
-              {kilometers} KM | {fuel}
+              {kilometers.toLocaleString("es-ES")} KM | {fuel}
             </p>
-            <h3>ARS {price} </h3>
+            <h3>ARS {price.toLocaleString("es-ES")} </h3>
           </Card>
         </Link>
       </Parallax>

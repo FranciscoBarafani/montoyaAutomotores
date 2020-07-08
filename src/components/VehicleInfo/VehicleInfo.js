@@ -79,7 +79,7 @@ export default function VehicleInfo() {
                     {vehicle.year}
                   </Descriptions.Item>
                   <Descriptions.Item label="Kilometros:">
-                    {vehicle.kilometers}
+                    {vehicle.kilometers.toLocaleString("es-ES")}
                   </Descriptions.Item>
                   <Descriptions.Item label="Combustible:">
                     {vehicle.fuel}
@@ -88,7 +88,7 @@ export default function VehicleInfo() {
                     {vehicle.transmission}
                   </Descriptions.Item>
                   <Descriptions.Item label="Precio:">
-                    {vehicle.price}
+                    {vehicle.price.toLocaleString("es-ES")}
                   </Descriptions.Item>
                   <Descriptions.Item label="Año:">
                     {vehicle.year}
