@@ -49,7 +49,7 @@ export default function About() {
                   <u> Av. Alem 324</u>{" "}
                 </a>
                 nos dedicamos a la compra y venta de automotores semi-nuevos y
-                usados en muy buen estado. Nuestro catalogo esta compuesto por
+                usados en muy buen estado. Nuestro catálogo esta compuesto por
                 vehículos de primera y segunda mano con el mejor precio de lista
                 asegurado.
               </h2>

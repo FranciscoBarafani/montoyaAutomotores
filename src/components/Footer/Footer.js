@@ -18,7 +18,7 @@ export default function Footer() {
         }}
       >
         <h3>
-          <b style={{ color: "#183059" }}>Donde encontrarnos?</b> En Av. Alem
+          <b style={{ color: "#183059" }}>Dónde encontrarnos?</b> En Av. Alem
           324, haz click{" "}
           <a
             href="https://goo.gl/maps/HYE5kS5in3CyqTHq7"
