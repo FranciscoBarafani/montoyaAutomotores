@@ -20,9 +20,7 @@ export default function HomeLayout() {
         <TopMenu />
         <SocialMedia />
       </Row>
-      <Row className="home-layout__slider" align="top" justify="center">
-        <Slider />
-      </Row>
+      <Slider />
       <Row className="home-layout__content" align="middle" justify="center">
         <HomeRoutes />
       </Row>

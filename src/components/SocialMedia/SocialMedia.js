@@ -7,7 +7,7 @@ import "./SocialMedia.scss";
 
 export default function SocialMedia() {
   return (
-    <div class="social-media">
+    <div className="social-media">
       <a
         href="https://www.facebook.com/Montoyaautomotores"
         target="_blank"

@@ -2,9 +2,10 @@ import React from "react";
 //Components
 import { Carousel } from "antd";
 //Images
-import Img1 from "../../assets/images/banner1.jpg";
-import Img2 from "../../assets/images/banner2.jpg";
-import Img3 from "../../assets/images/banner5.jpg";
+import Img1B from "../../assets/images/Banner1Big.jpg";
+import Img1S from "../../assets/images/Banner1Small.jpg";
+import Img2B from "../../assets/images/Banner2Big.jpg";
+import Img2S from "../../assets/images/Banner2Small.jpg";
 
 import "./Slider.scss";
 
@@ -12,14 +13,19 @@ export default function Slider() {
   return (
     <div className="slider">
       <Carousel autoplay effect="fade">
-        <div className="slider_1">
-          <img src={Img1} alt="Auto" />
+        <div className="slider-1">
+          <picture>
+            <source media="(min-width:768px)" srcset={Img1B} />
+            <source media="(min-width:300px)" srcset={Img1S} />
+            <img alt="Imagen" />
+          </picture>
         </div>
         <div>
-          <img src={Img3} alt="Auto" />
-        </div>
-        <div>
-          <img src={Img2} alt="Auto" />
+          <picture>
+            <source media="(min-width:768px)" srcset={Img2B} />
+            <source media="(min-width:300px)" srcset={Img2S} />
+            <img alt="Imagen" />
+          </picture>
         </div>
       </Carousel>
     </div>
