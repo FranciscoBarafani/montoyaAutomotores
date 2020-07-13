@@ -24,7 +24,7 @@ export default function About() {
               opacity: 0,
             }}
           >
-            <img src={Logo} alt={"Logo"} width={400} height={400} />
+            <img src={Logo} alt={"Logo"} />
           </Parallax>
         </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
