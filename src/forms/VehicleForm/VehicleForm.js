@@ -197,6 +197,7 @@ export default function VehicleForm(props) {
                 <Select placeholder="Tipo de Combustible">
                   <Option value="Nafta">Nafta</Option>
                   <Option value="Diesel">Diesel</Option>
+                  <Option value="GNC">GNC</Option>
                   <Option value="Hibrido">Híbrido</Option>
                   <Option value="Electrico">Eléctrico</Option>
                 </Select>
