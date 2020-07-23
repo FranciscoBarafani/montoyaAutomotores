@@ -10,6 +10,8 @@ import Img3B from "../../assets/images/Banner3Big.jpg";
 import Img3S from "../../assets/images/Banner3Small.jpg";
 import Img4B from "../../assets/images/Banner4Big.jpg";
 import Img4S from "../../assets/images/Banner4Small.jpg";
+import Img5B from "../../assets/images/Banner5Big.jpg";
+import Img5S from "../../assets/images/Banner5Small.jpg";
 
 import "./Slider.scss";
 
@@ -28,6 +30,13 @@ export default function Slider() {
           <picture>
             <source media="(min-width:768px)" srcset={Img2B} />
             <source media="(min-width:300px)" srcset={Img2S} />
+            <img alt="Imagen" />
+          </picture>
+        </div>
+        <div>
+          <picture>
+            <source media="(min-width:768px)" srcset={Img5B} />
+            <source media="(min-width:300px)" srcset={Img5S} />
             <img alt="Imagen" />
           </picture>
         </div>
