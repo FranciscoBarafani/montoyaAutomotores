@@ -27,14 +27,25 @@ export default function VehicleEdit() {
 
   //Upload Vehicle
   const uploadVehicle = (vehicle, id, images) => {
-    console.log(images);
-
     setIsLoading(true);
     setShowModal(true);
-    //Adding the images to the vehicle object prior to upload
+    //Sorting Images
+    var sortedImages = [];
     images.fileList.forEach((image) => {
-      vehicle.images.push(image.uid);
+      sortedImages.push(image.uid);
     });
+    console.log(sortedImages);
+    sortedImages.sort((a, b) =>
+      a.localeCompare(b, navigator.languages[0] || navigator.language, {
+        numeric: true,
+        ignorePunctuation: true,
+      })
+    );
+    //Adding the images to the vehicle object prior to upload
+    sortedImages.forEach((image) => {
+      vehicle.images.push(image);
+    });
+    console.log(vehicle);
     //Creating or Updating Vehicle
     if (id != null) {
       db.collection("vehicles")
