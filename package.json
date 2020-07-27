@@ -10,7 +10,7 @@
     "antd": "^4.3.4",
     "async": "^3.2.0",
     "firebase": "^7.15.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "rc-scroll-anim": "^2.7.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
