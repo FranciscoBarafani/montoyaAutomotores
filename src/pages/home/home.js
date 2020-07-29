@@ -4,6 +4,7 @@ import Vehicles from "../../components/Vehicles";
 import Loading from "../../components/Loading";
 import { message, Divider } from "antd";
 import { map } from "lodash";
+import Slider from "../../components/Slider";
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";

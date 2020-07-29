@@ -3,7 +3,6 @@ import React from "react";
 //Components
 import { Avatar, Row } from "antd";
 import TopMenu from "../../components/TopMenu";
-import Slider from "../../components/Slider";
 import CustomFooter from "../../components/Footer";
 import SocialMedia from "../../components/SocialMedia";
 import { WhatsAppOutlined } from "@ant-design/icons";
@@ -20,7 +19,6 @@ export default function HomeLayout() {
         <TopMenu />
         <SocialMedia />
       </Row>
-      <Slider />
       <Row className="home-layout__content" align="middle" justify="center">
         <HomeRoutes />
       </Row>
