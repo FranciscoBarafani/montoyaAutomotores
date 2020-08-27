@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 //Components
 import Vehicles from "../../components/Vehicles";
+import Loading from "../../components/Loading";
 import { message, Divider } from "antd";
 import { map } from "lodash";
 //Firebase
@@ -13,6 +14,8 @@ const db = firebase.firestore(firebase);
 export default function Home() {
   const [vehicles, setVehicles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  //Lazy Component load for better SEO
+  const Slider = React.lazy(() => import("../../components/Slider"));
 
   useEffect(() => {
     setIsLoading(true);
@@ -33,6 +36,7 @@ export default function Home() {
 
   return (
     <div className="home">
+      <Slider />
       <Divider style={{ color: "black" }}>
         <h2>
           <b>Nuestros Usados</b>
