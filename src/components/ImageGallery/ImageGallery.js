@@ -7,7 +7,6 @@ import "./ImageGallery.scss";
 
 export default function ImageGallery(props) {
   const { images } = props;
-  console.log(images);
 
   return (
     <div className="image-gallery">

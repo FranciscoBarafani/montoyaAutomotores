@@ -4,6 +4,7 @@ import { Card } from "antd";
 import { Link } from "react-router-dom";
 import firebase from "../../utils/Firebase";
 import { Parallax } from "rc-scroll-anim";
+import placeHolderImage from "../../assets/images/imagePlaceholder.png"
 import "firebase/storage";
 
 import "./VehicleCard.scss";
@@ -41,7 +42,7 @@ export default function VehicleCard(props) {
         <Link to={`/home/${id}`}>
           <Card
             hoverable
-            cover={<img src={imageUrl} alt={name} />}
+            cover={<img src={isLoading ? placeHolderImage : imageUrl} alt={name} />}
             loading={isLoading}
           >
             <Meta title={<h3>{name}</h3>} />

@@ -7,6 +7,7 @@ import Loading from "../Loading";
 import ImageGallery from "../ImageGallery";
 import each from "async/each";
 import { Descriptions } from "antd";
+
 //Firebase
 import firebase from "../../utils/Firebase";
 import "firebase/firestore";
@@ -61,11 +62,11 @@ export default function VehicleInfo() {
   };
 
   return (
-    <div>
+    <div className="vehicle-info">
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="vehicle-info">
+        <div >
           <Row justify="space-around" align="middle">
             <Col xs={24} sm={24} md={14} lg={14} xl={14}>
               <div className="vehicle-info-img">
