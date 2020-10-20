@@ -15,6 +15,7 @@ export default function Vehicles(props) {
         <List
           grid={{ gutter: 20, xs: 2, sm: 2, md: 4, lg: 4, xl: 4, xxl: 4 }}
           dataSource={vehicles}
+          locale={{ emptyText: <><h3>Error al cargar vehículos, por favor inténtelo de nuevo</h3></> }}
           renderItem={(item) => (
             <List.Item>
               <VehicleCard

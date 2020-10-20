@@ -1,11 +1,14 @@
 //Essentials
-import React from "react";
+import React, {useState, useEffect} from "react";
+//Firebase
+import firebase from "../../utils/Firebase";
 //Components
-import { Avatar, Row } from "antd";
+import { Avatar, Row, message } from "antd";
 import TopMenu from "../../components/TopMenu";
 import CustomFooter from "../../components/Footer";
 import SocialMedia from "../../components/SocialMedia";
 import { WhatsAppOutlined } from "@ant-design/icons";
+import Loading from "../../components/Loading"
 
 //Routes
 import HomeRoutes from "../../routes/HomeRoutes";
@@ -13,6 +16,16 @@ import HomeRoutes from "../../routes/HomeRoutes";
 import "./HomeLayout.scss";
 
 export default function HomeLayout() {
+  const [isSignedInAnonymously, setisSignedInAnonymously] = useState(false);
+  
+  //Firebase Sign In Annonymously
+  useEffect(() => {
+    firebase.auth().signInAnonymously()
+    .then(() => {
+      setisSignedInAnonymously(true)})
+      .catch(() => message.error("Error al cargar página, por favor intentelo nuevamente"));
+  }, []);
+
   return (
     <div className="home-layout">
       <Row className="home-layout__header" justify="space-between">
@@ -20,7 +33,7 @@ export default function HomeLayout() {
         <SocialMedia />
       </Row>
       <Row className="home-layout__content" align="middle" justify="center">
-        <HomeRoutes />
+        {isSignedInAnonymously ? <HomeRoutes /> : <Loading />}
       </Row>
       <Row className="home-layout__footer" align="middle" justify="center">
         <CustomFooter />

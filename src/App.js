@@ -1,5 +1,5 @@
 //Essentials
-import React, { useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,15 +11,10 @@ import {
 import HomeLayout from "./layouts/HomeLayout";
 //Admin Page Layout
 import AdminLayout from "./layouts/AdminLayout";
-//Firebase
-import firebase from "./utils/Firebase";
 
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    firebase.auth().signInAnonymously();
-  }, []);
 
   return (
     <div className="App">
