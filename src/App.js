@@ -6,6 +6,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+//Redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 //Home Page Layout
 import HomeLayout from "./layouts/HomeLayout";
@@ -15,21 +18,22 @@ import AdminLayout from "./layouts/AdminLayout";
 import "./App.css";
 
 function App() {
-
   return (
     <div className="App">
-      <Router>
-        <Switch>
-          <Redirect path="/" exact to="/home" />
-          <Route path="/home">
-            <HomeLayout />
-          </Route>
-          <Route path="/admin">
-            <AdminLayout />
-          </Route>
-          <Route path="*">Error</Route>
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Redirect path="/" exact to="/home" />
+            <Route path="/home">
+              <HomeLayout />
+            </Route>
+            <Route path="/admin">
+              <AdminLayout />
+            </Route>
+            <Route path="*">Error</Route>
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }
